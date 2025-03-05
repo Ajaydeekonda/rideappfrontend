@@ -9,7 +9,7 @@ export default function Log() {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/logs");
+        const response = await fetch("https://rideappbackend.onrender.com/api/logs");
         const data = await response.json();
 
         if (data.length > 0) {

@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/logs");
+        const response = await fetch("https://rideappbackend.onrender.com/api/logs");
         const data = await response.json();
 
         if (data.length > 0) {
@@ -38,7 +38,7 @@ export default function Home() {
     const requestBody = { date, morning, evening };
 
     try {
-      const response = await fetch("http://localhost:5000/api/addride", {
+      const response = await fetch("https://rideappbackend.onrender.com/api/addride", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody),
@@ -50,7 +50,7 @@ export default function Home() {
         setMorning(null);
         setEvening(null);
 
-        const updatedResponse = await fetch("http://localhost:5000/api/logs");
+        const updatedResponse = await fetch("https://rideappbackend.onrender.com/api/logs");
         const updatedData = await updatedResponse.json();
         if (updatedData.length > 0) {
           const lastTotalCount = updatedData[0].count;
